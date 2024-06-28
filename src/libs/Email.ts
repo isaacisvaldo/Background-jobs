@@ -4,7 +4,7 @@ import EmailConfig from '../app/config/EmailConfig';
 export async function enviarEmail(destinatario: string, name: string) {
   const transporter = nodemailer.createTransport(EmailConfig as any);
   const mailOptions = {
-    from: 'elearning@achei.ao',
+    from: process.env.SMTP_EMAIL,
     to: destinatario,
     subject: "Testing Email",
     html: ` <div class="container">
